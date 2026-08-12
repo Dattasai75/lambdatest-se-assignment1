@@ -1,0 +1,30 @@
+---
+version: 0.1
+runson: win11
+
+matrix:
+  tests: ["Test_1", "Test_2"]
+  browser: ["Chrome", "MicrosoftEdge"]
+  version: ["latest"]
+  os: ["win"]
+
+runtime:
+  language: java
+  version: 11
+
+cacheKey: '{{ checksum "pom.xml" }}'
+cacheDirectories:
+  - .m2
+
+pre:
+  - mvn -Dmaven.repo.local=./.m2 dependency:resolve
+
+testSuites:
+  - mvn test `-Dplatname=win `-Dmaven.repo.local=./.m2 `-DselectedTests=$tests
+
+parallelism: 1
+
+retryOnFailure: true
+maxRetries: 1
+
+jobLabel: [selenium-testng, win11, matrix]
