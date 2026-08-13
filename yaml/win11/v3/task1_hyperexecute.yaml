@@ -17,7 +17,7 @@ pre:
 testDiscovery:
   type: raw
   mode: static
-  command: powershell -Command "Select-String -Path xml\testng_win.xml -Pattern 'test name=\"([^\"]+)\"' -AllMatches | ForEach-Object { $_.Matches } | ForEach-Object { $_.Groups[1].Value }"
+  command: grep 'test name' xml/testng_win11.xml | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
 
 testRunnerCommand: mvn test -Dplatname=win -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=$test
 
