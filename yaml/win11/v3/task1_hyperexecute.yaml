@@ -1,27 +1,22 @@
 version: 0.1
-runson: win11
+   runson: win11
 
-autosplit: true
-concurrency: 1
+   autosplit: true
+   concurrency: 1
 
-runtime:
-  language: java
-  version: "11"
+   runtime:
+     language: java
+     version: "11"
 
-env:
-  TOKEN: anvdegtod-asdaasda0asda-asda
+   env:
+     TOKEN: anvdegtod-asdaasda0asda-asda
 
-pre:
-  - mvn dependency:resolve
+   pre:
+     - mvn dependency:resolve
 
-testDiscovery:
-  type: raw
-  mode: dynamic
-  command: grep -ir 'name="Test' xml/testng_win.xml | awk '{print $3}' | sed 's/\"//g' | sed 's/\name=//g'
+   testRunnerCommand: mvn test -Dplatname=win11 -Dmaven.repo.local=./.m2 -Dtest=SampleTest
 
-testRunnerCommand: mvn test -Dplatname=win11 -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=$test
+   retryOnFailure: true
+   maxRetries: 1
 
-retryOnFailure: true
-maxRetries: 1
-
-jobLabel: [selenium-testng, win, v1, autosplit]
+   jobLabel: [selenium-testng, win, v1]
