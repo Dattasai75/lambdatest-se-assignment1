@@ -13,6 +13,11 @@ env:
 
 pre:
   - mvn dependency:resolve
+  - dir
+  - dir xml
+  - type xml\testng_win.xml
+  - grep --version
+  - grep 'test name' xml\testng_win.xml
 
 testDiscovery:
   type: raw
