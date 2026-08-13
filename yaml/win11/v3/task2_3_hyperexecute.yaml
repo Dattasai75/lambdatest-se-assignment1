@@ -1,0 +1,16 @@
+version: 0.1
+runson: win11
+
+env:
+  ENVIRONMENT: staging
+
+pre:
+  - mvn dependency:resolve
+  - echo ENVIRONMENT is %ENVIRONMENT%
+
+testRunnerCommand: mvn test
+
+retryOnFailure: true
+maxRetries: 1
+
+jobLabel: [selenium-testng, win11, task2, task3]
