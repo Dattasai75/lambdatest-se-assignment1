@@ -6,10 +6,10 @@ concurrency: 1
 
 runtime:
   language: java
-  version: "11"
+  version: 11
 
 env:
-  TOKEN: "anvdegtod-asdaasda0asda-asda"
+  TOKEN: anvdegtod-asdaasda0asda-asda
 
 pre:
   - mvn dependency:resolve
@@ -17,41 +17,9 @@ pre:
 testDiscovery:
   type: raw
   mode: static
-  command: grep 'test name' xml/testng_win11.xml | awk '{print$2}' | sed 's/name=//g' | sed 's/>//g'
+  command: grep 'test name' xml/testng_win11.xml | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
 
-testRunnerCommand: mvn test -Dplaversion: 0.1
-runson: win11
-
-autosplit: true
-concurrency: 1
-
-runtime:
-  language: java
-  version: "11"
-
-env:
-  TOKEN: "anvdegtod-asdaasda0asda-asda"
-
-pre:
-  - mvn dependency:resolve
-  - dir
-  - dir xml
-  - type xml\testng_win11.xml
-  - grep --version
-  - grep 'test name' xml\testng_win11.xml
-  - echo DONE_DEBUGGING
-
-testDiscovery:
-  type: raw
-  mode: static
-  command: grep 'test name' xml/testng_win11.xml | awk '{print$2}' | sed 's/name=//g' | sed 's/>//g'
-
-testRunnerCommand: mvn test -Dplatname=win -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=$test
-
-retryOnFailure: true
-maxRetries: 1
-
-jobLabel: [selenium-testng, win11, v1, autosplit]tname=win -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=$test
+testRunnerCommand: mvn test -Dplaversion=win11 -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=$test
 
 retryOnFailure: true
 maxRetries: 1
