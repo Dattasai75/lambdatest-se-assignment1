@@ -1,0 +1,75 @@
+{
+    "id": "24e88476-a1f4-47f4-942d-b7334676416d",
+    "remark": "Job failed at test_discovery step. Please check your Yaml configuration.",
+    "created_at": "2026-08-13T16:20:13Z",
+    "update_at": "2026-08-13T16:20:49Z",
+    "global_timeout": 90,
+    "tunnel_name": "",
+    "start_time": "2026-08-13T16:20:24Z",
+    "end_time": "2026-08-13T16:20:49Z",
+    "summary": {
+        "total_time": 25000000000,
+        "execution_time": 25000000000,
+        "total_tasks": 1,
+        "build_time_consumed": 25000000000,
+        "jobTestExecutionTime": "0s",
+        "failed_tasks": 1,
+        "total_stage_info": {
+            "prerun": {
+                "StageFailedPercent": 0,
+                "StagePassPercent": 100,
+                "TotalStage": 1
+            },
+            "test_discovery": {
+                "StageFailedPercent": 100,
+                "StagePassPercent": 0,
+                "TotalStage": 1
+            }
+        },
+        "status": "failed",
+        "job_link": "https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=24e88476-a1f4-47f4-942d-b7334676416d"
+    },
+    "tasks": [
+        {
+            "id": "HYPW-3269657-1786638022365216057VGC",
+            "os": "win",
+            "status": "failed",
+            "remark": "Job failed at test_discovery step. Please check your Yaml configuration.",
+            "debug": false,
+            "created_at": "2026-08-13T16:20:22Z",
+            "update_at": "2026-08-13T16:20:49Z",
+            "start_time": "2026-08-13T16:20:24Z",
+            "end_time": "2026-08-13T16:20:49Z",
+            "group_number": 1,
+            "stages": [
+                {
+                    "id": "f249c9e6-5004-415c-aaa8-e35599b4ec2f",
+                    "type": "prerun",
+                    "status": "completed",
+                    "name": "pre",
+                    "iteration": 0,
+                    "link": "pre.log",
+                    "created_at": "2026-08-13T16:20:28Z",
+                    "started_at": "2026-08-13T16:20:28Z",
+                    "updated_at": "2026-08-13T16:20:49Z",
+                    "order": 2,
+                    "task_number": 1
+                },
+                {
+                    "id": "169ac939-09f1-4514-9e39-ff668ee171f8",
+                    "type": "test_discovery",
+                    "status": "failed",
+                    "name": "discovery",
+                    "iteration": 0,
+                    "link": "discovery.log",
+                    "created_at": "2026-08-13T16:20:49Z",
+                    "started_at": "2026-08-13T16:20:49Z",
+                    "updated_at": "2026-08-13T16:20:49Z",
+                    "order": 3,
+                    "task_number": 1
+                }
+            ]
+        }
+    ],
+    "test_ids": null
+}
