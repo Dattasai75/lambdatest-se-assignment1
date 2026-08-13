@@ -106,7 +106,7 @@ globalPre:
     type: ""
     workingDirectory: ""
     yamlPath: null
-jobID: 24e88476-a1f4-47f4-942d-b7334676416d
+jobID: 02eb8bb6-3c96-4bce-afd8-d0e074e6b107
 jobLabel:
     - selenium-testng
     - win
@@ -148,7 +148,7 @@ retryOnFailure: true
 runson: win11
 runtime:
     language: java
-    version: "11.0"
+    version: "11"
     addons: []
     opts: {}
 slackChannel: ""
@@ -158,11 +158,11 @@ sprofilePath: ""
 storageType: ""
 testDiscovery:
     autosubset: true
-    command: grep 'test name' xml/testng_win.xml | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g'
+    command: grep -ir 'name="Test' xml/testng_win.xml | awk '{print $3}' | sed 's/\"//g' | sed 's/\name=//g'
     mode: dynamic
     type: raw
 testDiscoveryResultV3: []
-testRunnerCommand: mvn test -Dplatname=win -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=$test
+testRunnerCommand: mvn test -Dplatname=win11 -Dmaven.repo.local=./.m2 dependency:resolve -DselectedTests=$test
 testSuites: []
 triggerMode: false
 triggerSource: CLI
